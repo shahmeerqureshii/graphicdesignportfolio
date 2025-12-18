@@ -1,48 +1,4 @@
-.loader {
-  width: 65px;
-  aspect-ratio: 1;
-  position: relative;
-}
-.loader:before,
-.loader:after {
-  content: "";
-  position: absolute;
-  border-radius: 50px;
-  box-shadow: 0 0 0 3px inset #fff;
-  animation: l4 2.5s infinite;
-}
-.loader:after {
-  animation-delay: -1.25s;
-}
-@keyframes l4 {
-  0% {
-    inset: 0 35px 35px 0;
-  }
-  12.5% {
-    inset: 0 35px 0 0;
-  }
-  25% {
-    inset: 35px 35px 0 0;
-  }
-  37.5% {
-    inset: 35px 0 0 0;
-  }
-  50% {
-    inset: 35px 0 0 35px;
-  }
-  62.5% {
-    inset: 0 0 0 35px;
-  }
-  75% {
-    inset: 0 0 35px 35px;
-  }
-  87.5% {
-    inset: 0 0 35px 0;
-  }
-  100% {
-    inset: 0 35px 35px 0;
-  }
-}* {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -66,12 +22,12 @@ input, textarea, select, button {
 }
 
 /* Allow copying links text if needed */
-a, code, pre {
+/* a, code, pre {
     -webkit-user-select: text;
     -moz-user-select: text;
     -ms-user-select: text;
     user-select: text;
-}
+} */
 
 :root {
     --primary-color: #00d4ff;
@@ -109,6 +65,65 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+}
+.loader {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.ring {
+    width: 200px;
+    height: 200px;
+    border: 4px solid whitesmoke;
+    border-radius: 50%;
+}
+
+.ring:nth-child(1) {
+    border-bottom-width: 8px;
+    border-color: var(--accent-1);
+    animation: rotate 2s linear infinite;
+}
+
+.ring:nth-child(2) {
+    border-bottom-width: 8px;
+    border-color: var(--primary-color);
+    animation: rotate2 2s linear infinite;
+}
+
+.ring:nth-child(3) {
+    border-bottom-width: 8px;
+    border-color: var(--primary-color);
+    animation: rotate3 2s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+    }
+}
+
+@keyframes rotate2 {
+    0% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(50deg) rotateY(-10deg) rotateZ(360deg);
+    }
+}
+
+@keyframes rotate3 {
+    0% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+    }
 }
 
 .container {
