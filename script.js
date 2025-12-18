@@ -1,14 +1,9 @@
 // Loader
-window.addEventListener("load", () => {
-    const loader = document.querySelector(".loader");
-
-    // Add the hidden class to trigger the fade-out
-    loader.classList.add("loader-hidden");
-
-    // Optional: Remove it from the DOM entirely after the transition
-    loader.addEventListener("transitionend", () => {
-        document.body.removeChild(loader);
-    });
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader-wrapper');
+    setTimeout(() => {
+        loader.classList.add('loader-hidden');
+    }, 500);
 });
 
 // Mobile Menu Toggle

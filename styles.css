@@ -13,22 +13,6 @@
     user-select: none;         /* Standard */
 }
 
-/* Allow selection inside inputs, textareas, selects and when explicitly needed */
-input, textarea, select, button {
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
-}
-
-/* Allow copying links text if needed */
-/* a, code, pre {
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
-} */
-
 :root {
     --primary-color: #00d4ff;
     --secondary-color: #0099cc;
@@ -67,32 +51,55 @@ body {
     overflow-x: hidden;
 }
 
-.loader {
-    position: fixed; /* Fixes it to the screen */
+#loader-wrapper {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000; /* Match your site's background */
+    background: var(--dark-bg);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* Higher than any other element */
-    transition: opacity 0.5s ease; /* Smooth fade-out effect */
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-/* Add this to hide the loader later */
+.loader {
+    width: 65px;
+    aspect-ratio: 1;
+    position: relative;
+}
+
+.loader:before,
+.loader:after {
+    content: "";
+    position: absolute;
+    border-radius: 50px;
+    box-shadow: 0 0 0 3px inset var(--primary-color); 
+    animation: l4 2.5s infinite;
+}
+
+.loader:after {
+    animation-delay: -1.25s;
+}
+
+@keyframes l4 {
+    0%    { inset: 0 35px 35px 0; }
+    12.5% { inset: 0 35px 0 0;    }
+    25%   { inset: 35px 35px 0 0; }
+    37.5% { inset: 35px 0 0 0;    }
+    50%   { inset: 35px 0 0 35px; }
+    62.5% { inset: 0 0 0 35px;    }
+    75%   { inset: 0 0 35px 35px; }
+    87.5% { inset: 0 0 35px 0;    }
+    100%  { inset: 0 35px 35px 0; }
+}
+
+/* Class to hide loader when page is ready */
 .loader-hidden {
     opacity: 0;
     visibility: hidden;
-}
-
-/* Ensure rings overlap in the center */
-.ring {
-    position: absolute; 
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
 }
 
 .container {
