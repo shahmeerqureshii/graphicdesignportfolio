@@ -120,59 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-// const contactForm = document.getElementById('contactForm');
-// if (contactForm) {
-//     contactForm.addEventListener('submit', function(e) {
-//         e.preventDefault();
-        
-//         // Get form values
-//         const formData = new FormData(this);
-
-//         // Extract fields by name (phone is optional)
-//         const name = (formData.get('name') || '').trim();
-//         const email = (formData.get('email') || '').trim();
-//         const phone = (formData.get('phone') || '').trim();
-//         const project = (formData.get('project') || '').trim();
-//         const message = (formData.get('message') || '').trim();
-
-//         // Basic required-field validation (phone optional)
-//         if (name === '' || email === '' || project === '' || message === '') {
-//             alert('Please fill in all required fields (Name, Email, Project, Message).');
-//             return;
-//         }
-
-//         // Simple email validation
-//         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//         if (!emailPattern.test(email)) {
-//             alert('Please enter a valid email address.');
-//             return;
-//         }
-
-//         // Optional phone validation: if provided, ensure it has at least 7 digits
-//         if (phone !== '') {
-//             const digits = phone.replace(/\D/g, '');
-//             if (digits.length < 7) {
-//                 alert('Please enter a valid phone number.');
-//                 return;
-//             }
-//         }
-
-//         // Build success message (includes phone if provided)
-//         let successMsg = 'Message Sent! Thank you for your message! I will get back to you soon.';
-
-//         alert(successMsg);
-
-//         // Reset form
-//         this.reset();
-
-//         // Reset textarea height (shrink to initial after reset)
-//         const taAfterReset = this.querySelector('textarea');
-//         if (taAfterReset) {
-//             taAfterReset.style.height = 'auto';
-//             taAfterReset.style.height = taAfterReset.scrollHeight + 'px';
-//         }
-//     });
-// }
 
 // Auto-resize contact textarea(s)
 function autoResizeTextarea(textarea) {
@@ -345,7 +292,3 @@ console.log('Portfolio website loaded successfully!');
     });
     mo.observe(document.body, { childList: true, subtree: true });
 })();
-
-
-
-
