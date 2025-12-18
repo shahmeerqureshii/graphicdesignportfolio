@@ -66,64 +66,33 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 }
+
 .loader {
+    position: fixed; /* Fixes it to the screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000; /* Match your site's background */
     display: flex;
-    position: relative;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    z-index: 9999; /* Higher than any other element */
+    transition: opacity 0.5s ease; /* Smooth fade-out effect */
 }
 
+/* Add this to hide the loader later */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Ensure rings overlap in the center */
 .ring {
+    position: absolute; 
     width: 200px;
     height: 200px;
-    border: 4px solid whitesmoke;
     border-radius: 50%;
-}
-
-.ring:nth-child(1) {
-    border-bottom-width: 8px;
-    border-color: var(--accent-1);
-    animation: rotate 2s linear infinite;
-}
-
-.ring:nth-child(2) {
-    border-bottom-width: 8px;
-    border-color: var(--primary-color);
-    animation: rotate2 2s linear infinite;
-}
-
-.ring:nth-child(3) {
-    border-bottom-width: 8px;
-    border-color: var(--primary-color);
-    animation: rotate3 2s linear infinite;
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
-    }
-    100% {
-        transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
-    }
-}
-
-@keyframes rotate2 {
-    0% {
-        transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
-    }
-    100% {
-        transform: rotateX(50deg) rotateY(-10deg) rotateZ(360deg);
-    }
-}
-
-@keyframes rotate3 {
-    0% {
-        transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
-    }
-    100% {
-        transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
-    }
 }
 
 .container {
